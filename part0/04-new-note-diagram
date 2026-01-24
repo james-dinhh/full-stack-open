@@ -1,0 +1,39 @@
+```mermaid
+sequenceDiagram
+participant Browser
+participant Server
+
+    Browser->>Server: POST /exampleapp/new_note
+    activate Server
+    Server-->>Browser: Responds with redirect instruction
+    deactivate Server
+
+    Browser->>Server: GET /exampleapp/notes
+    activate Server
+    Server-->>Browser: Returns HTML document
+    deactivate Server
+
+    Browser->>Server: GET /exampleapp/main.css
+    activate Server
+    Server-->>Browser: Returns CSS stylesheet
+    deactivate Server
+
+    Browser->>Server: GET /exampleapp/main.js
+    activate Server
+    Server-->>Browser: Returns JavaScript bundle
+    deactivate Server
+
+    Note right of Browser: JavaScript is executed and initiates a data request
+
+    Browser->>Server: GET /exampleapp/data.json
+    activate Server
+    Server-->>Browser: Returns notes data in JSON format
+    deactivate Server
+
+    Note right of Browser: Notes are rendered based on received data
+
+    Browser->>Server: GET /favicon.ico
+    activate Server
+    Server-->>Browser: Returns favicon file
+    deactivate Server
+```

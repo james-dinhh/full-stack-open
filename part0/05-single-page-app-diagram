@@ -1,0 +1,35 @@
+```mermaid
+sequenceDiagram
+participant Browser
+participant Server
+
+    Browser->>Server: GET /exampleapp/spa
+    activate Server
+    Server-->>Browser: Returns SPA HTML shell
+    deactivate Server
+
+    Browser->>Server: GET /exampleapp/main.css
+    activate Server
+    Server-->>Browser: Returns CSS stylesheet
+    deactivate Server
+
+    Browser->>Server: GET /exampleapp/spa.js
+    activate Server
+    Server-->>Browser: Returns SPA JavaScript bundle
+    deactivate Server
+
+    Note right of Browser: SPA JavaScript starts running and requests data
+
+    Browser->>Server: GET /exampleapp/data.json
+    activate Server
+    Server-->>Browser: Returns notes as JSON
+    deactivate Server
+
+    Note right of Browser: UI is updated dynamically without page reload
+
+    Browser->>Server: GET /favicon.ico
+    activate Server
+    Server-->>Browser: Returns favicon file
+    deactivate Server
+
+```

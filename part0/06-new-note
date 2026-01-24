@@ -1,0 +1,12 @@
+```mermaid
+sequenceDiagram
+participant Browser
+participant Server
+
+    Browser->>Server: POST /exampleapp/new_note_spa (note content)
+    activate Server
+    Server-->>Browser: Returns newly created note as JSON
+    deactivate Server
+
+    Note right of Browser: Application state is updated and UI re-renders instantly
+```
